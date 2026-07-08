@@ -1,12 +1,24 @@
 <script setup>
 // Eventos que este componente puede emitir hacia su padre (Calculator.vue)
-const emit = defineEmits(['digit', 'decimal', 'operator', 'equals', 'clear'])
+const emit = defineEmits([
+  'digit',
+  'decimal',
+  'operator',
+  'equals',
+  'clear',
+  'memory-add',
+  'memory-recall',
+  'memory-clear',
+])
 </script>
 
 <template>
   <div class="calculator-keypad">
     <!-- CE: resetea la calculadora, no lleva dato -->
     <button @click="emit('clear')">CE</button>
+    <button @click="emit('memory-clear')">MC</button>
+    <button @click="emit('memory-recall')">MR</button>
+    <button @click="emit('memory-add')">M+</button>
 
     <!-- Fila de dígitos 7-8-9 + operador división -->
     <button @click="emit('digit', '7')">7</button>
