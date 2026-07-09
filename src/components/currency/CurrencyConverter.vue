@@ -19,8 +19,8 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="currency-converter card p-3 h-100">
-    <h3 class="card-title">Conversor de Divisas</h3>
+  <div class="currency-converter card p-3 h-100 shadow-sm border-success border-2">
+    <h3 class="card-title text-success">💱 Conversor de Divisas</h3>
 
     <p v-if="isLoading" class="text-muted">Cargando tasas de cambio...</p>
     <p v-else-if="error" class="text-danger">{{ error }}</p>

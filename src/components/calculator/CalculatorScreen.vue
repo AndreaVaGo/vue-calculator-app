@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="calculator-screen bg-dark text-white text-end p-3 mb-2 rounded fs-2">
+  <div class="calculator-screen bg-dark text-white text-end p-3 mb-3 rounded-3 fs-1 font-monospace">
     {{ value }}
   </div>
 </template>

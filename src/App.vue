@@ -5,8 +5,8 @@ import WeatherWidget from './components/weather/WeatherWidget.vue'
 </script>
 
 <template>
-  <div class="container py-3 py-md-5">
-    <h1 class="text-center mb-4">Calculadora Multifuncional</h1>
+  <div class="container py-3 py-md-5" style="background-color: #f4f6f9; min-height: 100vh">
+    <h1 class="text-center mb-4 fw-bold">Calculadora Multifuncional</h1>
 
     <div class="row justify-content-center">
       <div class="col-12 col-md-8 col-lg-6">

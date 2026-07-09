@@ -27,7 +27,7 @@ function memoryClear() {
 </script>
 
 <template>
-  <div class="calculator">
+  <div class="calculator card p-3 shadow-sm">
     <CalculatorScreen :value="displayValue" />
     <CalculatorKeypad
       @digit="inputDigit"
