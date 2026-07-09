@@ -8,18 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="calculator-screen">
+  <div class="calculator-screen bg-dark text-white text-end p-3 mb-2 rounded fs-2">
     {{ value }}
   </div>
 </template>
-
-<style scoped>
-.calculator-screen {
-  background-color: #222;
-  color: white;
-  font-size: 2rem;
-  text-align: right;
-  padding: 1rem;
-  border-radius: 8px;
-}
-</style>

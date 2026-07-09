@@ -9,7 +9,7 @@ import WeatherWidget from './components/weather/WeatherWidget.vue'
     <h1 class="text-center mb-4">Calculadora Multifuncional</h1>
 
     <div class="row justify-content-center">
-      <div class="col-12 col-md-6">
+      <div class="col-12 col-md-8 col-lg-6">
         <CalculatorApp />
       </div>
     </div>
