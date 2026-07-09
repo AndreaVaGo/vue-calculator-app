@@ -13,4 +13,25 @@ describe('useCalculator', () => {
 
     expect(displayValue.value).toBe('8')
   })
+
+  test('muestra Error al dividir entre cero', () => {
+    const { displayValue, inputDigit, inputOperator, calculate } = useCalculator()
+
+    // Simulamos: 5, /, 0, =
+    inputDigit('5')
+    inputOperator('/')
+    inputDigit('0')
+    calculate()
+
+    expect(displayValue.value).toBe('Error')
+  })
+
+  test('resetea todo al pulsar CE', () => {
+    const { displayValue, inputDigit, clear } = useCalculator()
+
+    inputDigit('9')
+    clear()
+
+    expect(displayValue.value).toBe('0')
+  })
 })
