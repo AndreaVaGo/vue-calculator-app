@@ -1,69 +1,137 @@
-# .
+# 🧮 Calculadora Multifuncional — Vue 3
 
-This template should help get you started developing with Vue 3 in Vite.
+Aplicación web de una sola vista (SPA) desarrollada con **Vue 3** que combina una calculadora funcional con un conversor de divisas y un módulo de información meteorológica en tiempo real.
 
-## Recommended IDE Setup
+Proyecto realizado como ejercicio del bootcamp de desarrollo Full Stack en **Factoría F5 Asturias**.
 
-[VS Code](https://code.visualstudio.com/) + [Vue (Official)](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+## 🔗 Enlaces
 
-## Recommended Browser Setup
+- **Repositorio:** https://github.com/AndreaVaGo/vue-calculator-app
+- **Aplicación desplegada:** https://andreavago.github.io/vue-calculator-app/
 
-- Chromium-based browsers (Chrome, Edge, Brave, etc.):
-  - [Vue.js devtools](https://chromewebstore.google.com/detail/vuejs-devtools/nhdogjmejiglipccpnnnanhbledajbpd)
-  - [Turn on Custom Object Formatter in Chrome DevTools](http://bit.ly/object-formatters)
-- Firefox:
-  - [Vue.js devtools](https://addons.mozilla.org/en-US/firefox/addon/vue-js-devtools/)
-  - [Turn on Custom Object Formatter in Firefox DevTools](https://fxdx.dev/firefox-devtools-custom-object-formatters/)
+## 📋 Objetivo del proyecto
 
-## Customize configuration
+Crear una calculadora multifuncional que integre, en una única vista:
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- Una calculadora con las operaciones básicas (suma, resta, multiplicación, división)
+- Un conversor de divisas en tiempo real (Euro, Dólar, Yen)
+- Un módulo de información meteorológica (nacional o de Asturias)
+- Una función de memoria (M+, MR, MC) gestionada con Pinia
 
-## Project Setup
+## ✨ Funcionalidades
 
-```sh
+### Calculadora
+
+- Operaciones básicas: suma (+), resta (-), multiplicación (\*), división (/)
+- Teclas numéricas del 0 al 9
+- Tecla de coma decimal (.)
+- Tecla de resultado (=)
+- Tecla de reseteo (CE)
+- Control de errores: división entre cero, evita decimales duplicados
+- Memoria: M+ (guardar), MR (recuperar), MC (borrar), usando **Pinia**
+
+### Conversor de divisas
+
+- Conversión entre Euro (€), Dólar ($) y Yen (¥)
+- Tasas de cambio en tiempo real vía la API de [CurrencyFreaks](https://currencyfreaks.com/)
+- Cálculo de conversión cruzada usando USD como divisa intermedia
+
+### El Tiempo
+
+- Datos meteorológicos en tiempo real vía la API de [el-tiempo.net](https://www.el-tiempo.net/api)
+- Selector entre información **nacional** o de la provincia de **Asturias**
+- Icono representativo del estado del cielo (stateSky) para cada localidad
+- Gestión de estados de carga y error
+
+## 🛠️ Stack tecnológico
+
+- **Vue 3** (Composition API) — framework principal
+- **Vite** — bundler y servidor de desarrollo
+- **Pinia** — gestión de estado global (memoria de la calculadora)
+- **Axios** — peticiones HTTP a las APIs externas
+- **Bootstrap 5** — estilos y diseño responsive (mobile first)
+- **Vitest** — tests unitarios
+- **Playwright** — tests end-to-end (E2E)
+- **ESLint + Prettier** — calidad y formato de código
+
+## 📁 Estructura del proyecto
+
+​```
+src/
+├── assets/ # Recursos estáticos
+├── components/
+│ ├── calculator/ # Componentes de la calculadora
+│ ├── currency/ # Componente del conversor de divisas
+│ └── weather/ # Componente del módulo del tiempo
+├── composables/ # Lógica reactiva reutilizable
+│ ├── useCalculator.js
+│ ├── useCurrencyConverter.js
+│ └── useWeather.js
+├── core/
+│ ├── mappers/ # Transformación de datos de las APIs
+│ └── repositories/ # Capa de acceso a las APIs externas (patrón Repository)
+├── stores/ # Store de Pinia (memoria de la calculadora)
+├── **tests**/ # Tests unitarios con Vitest
+├── App.vue
+└── main.js
+
+e2e/ # Tests end-to-end con Playwright
+​```
+
+## 🚀 Instalación y uso local
+
+1. Clona el repositorio:
+
+​`bash
+git clone https://github.com/AndreaVaGo/vue-calculator-app.git
+cd vue-calculator-app
+​`
+
+2. Instala las dependencias:
+
+​`bash
 npm install
-```
+​`
 
-### Compile and Hot-Reload for Development
+3. Crea un archivo `.env` en la raíz del proyecto con tu clave de la API de CurrencyFreaks:
 
-```sh
+​`
+VITE_CURRENCYFREAKS_API_KEY=tu_clave_aqui
+​`
+
+> Puedes obtener una clave gratuita registrándote en [currencyfreaks.com](https://currencyfreaks.com/).
+> La API de el-tiempo.net no requiere clave.
+
+4. Arranca el servidor de desarrollo:
+
+​`bash
 npm run dev
-```
+​`
 
-### Compile and Minify for Production
+## ✅ Testing
 
-```sh
-npm run build
-```
+**Tests unitarios (Vitest)** — cubren la lógica de la calculadora (suma, división por cero, reseteo):
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
-
-```sh
+​`bash
 npm run test:unit
-```
+​`
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+**Tests E2E (Playwright)** — simulan la interacción real del usuario con la calculadora en el navegador:
 
-```sh
-# Install browsers for the first run
-npx playwright install
+​`bash
+npx playwright test
+​`
 
-# When testing on CI, must build the project first
+> Requiere tener el servidor de desarrollo corriendo (`npm run dev`) en otra terminal.
+
+## 📦 Build y despliegue
+
+​`bash
 npm run build
+​`
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+Genera la versión de producción en la carpeta `dist/`, desplegada automáticamente en GitHub Pages.
 
-### Lint with [ESLint](https://eslint.org/)
+## 👤 Autora
 
-```sh
-npm run lint
-```
+**Andrea**
