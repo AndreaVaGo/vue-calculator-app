@@ -8,6 +8,7 @@ Proyecto realizado como ejercicio del bootcamp de desarrollo Full Stack en **Fac
 
 - **Repositorio:** https://github.com/AndreaVaGo/vue-calculator-app
 - **Aplicación desplegada:** https://andreavago.github.io/vue-calculator-app/
+- **Prototipo interactivo (Emergent AI):** https://app-clone-132.preview.emergentagent.com/?utm_source=share
 
 ## 📋 Objetivo del proyecto
 
